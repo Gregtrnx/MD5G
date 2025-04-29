@@ -1,9 +1,16 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #000000;
+    font-family: "Michroma", sans-serif;
+    background-color: #fff;
     color: #fff;
     margin: 0;
     height: 250vh;
+    overflow-x: hidden;
+}
+
+.Home {
+    background-color: #000000;
+    padding-top: 5vh;
+    height: 150vh;
 }
 
 /**********************/
@@ -14,13 +21,32 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+    margin-bottom: 10vh;
+    position : relative;
+    z-index: 30;
 }
 
 header>a {
     text-decoration: none;
     color: #fff;
+    position: relative;
+}
+
+header>a::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background: #fff;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 2px;
+}
+
+header>a:hover::after {
+    width: 100%;
 }
 
 .translate {
@@ -44,15 +70,20 @@ h1 {
 /**********************/
 
 .title-main {
+    font-size: 1.5rem;
     background-color: #00000030;
-    border : solid 2px #ffffff40;
+    border: solid 2px #ffffff40;
     border-radius: 10px;
     height: fit-content;
-    padding: 32px;
+    padding: 64px;
     margin-right: auto;
+    width: 26vw;
+    position: relative;
+    z-index: 10;
 }
 
-.title-main > a {
+.title-main>a {
+    font-size: 1.2rem;
     display: flex;
     align-items: center;
     width: fit-content;
@@ -67,35 +98,39 @@ h1 {
 main {
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
 }
 
-main > img {
-    z-index: -100;
-}
+main>img {}
 
 .adjectives-main {
     display: flex;
     flex-direction: column;
     margin-right: 10vw;
     width: 25vw;
+    position: relative;
 }
 
-.adjectives-main > h3 {
+.adjectives-main>h3 {
     font-size: 1.5rem;
     background-color: #ffffff40;
-    border : solid 1px #ffffff;
+    border: solid 1px #ffffff;
     border-radius: 30px 10px 30px 10px;
     padding: 32px;
-    margin-left: auto;
+    position: absolute;
+    top: -10vw;
+    left: 16vw;
 }
 
-.adjectives-main > h4 {
+.adjectives-main>h4 {
     font-size: 1.2rem;
     background-color: #ffffff40;
-    border : solid 1px #ffffff;
+    border: solid 1px #ffffff;
     border-radius: 10px 30px 10px 30px;
     padding: 32px;
-    margin-right: auto;
+    position: absolute;
+    top: -1vw;
+    right: 13vw;
 }
 
 /**********************/
@@ -113,18 +148,190 @@ main > img {
 
 .bg-cloud {
     position: absolute;
-    top: 5%;
+    top: 10%;
     left: 0;
     width: 100%;
-    z-index: -30;
+    z-index: 2;
     transition: transform 0.1s ease-out;
     object-fit: cover;
-  }
-  
-  .bg-cloud-1 {
+}
+
+.bg-cloud-1 {
     position: absolute;
-    top: 5%;
+    top: 10%;
     left: 0;
     width: 100%;
-    z-index: -30;
-  }
+    z-index: 2;
+}
+
+/**********************/
+/*******Page 1*******/
+/**********************/
+.page-1 {
+    background-color: #fff;
+    margin-top: 70vh;
+    height: 100vh;
+}
+
+.page-1>h2 {
+    font-size: 5rem;
+    color: #000;
+    padding-top: 10vh;
+    margin-left: 5vw;
+}
+
+.page-1>h3 {
+    color: #000;
+    margin-left: 5vw;
+}
+
+.page1-content {
+    position: relative;
+}
+
+.rond {
+    position: absolute;
+    top: 25vh;
+    left: 5vw;
+}
+
+.fleur {
+    position: absolute;
+    top: 7vh;
+    left: 1%;
+}
+
+.rectangle {
+    position: absolute;
+    top: 15vh;
+    left: 45%;
+}
+
+.sablier {
+    position: absolute;
+    top: 3vh;
+    left: 35%;
+}
+
+/**********************/
+/*******Page 2 & Scroll*******/
+/**********************/
+
+.horizontal-sections {
+    display: flex;
+    flex-direction: row;
+    width: 400vw;
+    height: 100vh;
+    position: relative;
+}
+
+.page-2,
+.page-3,
+.page-4,
+.page-5 {
+    width: 100vw;
+    height: 100vh;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.page-2 {
+    background: #fff;
+    color: #000;
+}
+
+.page-2>h2 {
+    font-size: 2.5rem;
+    margin-left: 5vw;
+}
+
+.page-2>h3 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-left: 5vw;
+}
+
+.page2-content {
+    position: relative;
+}
+
+.rond-p2 {
+    position: absolute;
+    top: -65vh;
+    right: -5vw;
+}
+
+.rond-p21 {
+    position: absolute;
+    top: -65vh;
+    right: 20vw;
+}
+
+.fleur-p2 {
+    position: absolute;
+    top: -65vh;
+    right: -5vw;
+}
+
+/**********************/
+/*******Page 3*******/
+/**********************/
+
+.page-3 {
+    background: #fff;
+    color: #000;
+}
+
+.page-3>h2 {
+    font-size: 2.5rem;
+    margin-left: 5vw;
+}
+
+.page-3>h3 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-left: 5vw;
+}
+
+
+/**********************/
+/*******Page 4*******/
+/**********************/
+
+.page-4 {
+    background: #fff;
+    color: #000;
+}
+
+.page-4>h2 {
+    font-size: 2.5rem;
+    margin-left: 5vw;
+}
+
+.page-4>h3 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-left: 5vw;
+}
+
+/**********************/
+/*******Page 5*******/
+/**********************/
+
+.page-5 {
+    background: #fff;
+    color: #000;
+}
+
+.page-5>h2 {
+    font-size: 2.5rem;
+    margin-left: 5vw;
+}
+
+.page-5>h3 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-left: 5vw;
+}

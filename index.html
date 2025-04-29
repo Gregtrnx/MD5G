@@ -4,34 +4,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MD5G - Concepteur de [Site Web]</title>
+    <title>MD5G - Concepteur de Site Web</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles/style-index.css">
 </head>
 
 <body>
-    <header>
-        <div class="translate"><img src="/images/translate.svg" alt="Logo Translate"></div>
-        <a href="#">Qui suis-je ?</a>
-        <div class="Title">
-            <h1>MD5G</h1>
-        </div>
-        <a href="#">Contact</a>
-        <a href="#">Tarifs</a>
-    </header>
-    <main>
-        <div class="title-main">
-            <h2>Un site web rend tout possible</h2>
-            <a href="#">Me contacter <img src="/images/fleche-droite.png" alt="Fleche droite"></a>
-        </div>
-        <img loading="lazy" src="/images/geometric-head.gif" alt="Geometric Head">
-        <div class="adjectives-main">
-            <h3>Visibilité</h3>
-            <h4>Crédibilité</h4>
-        </div>
-    </main>
-    <section class="background-image">
-        <img src="images/cloud.webp" alt="Nuage" class="bg-cloud" loading="lazy">
-        <img src="images/cloud.webp" alt="Nuage" class="bg-cloud-1" loading="lazy">
+    <section class="Home">
+        <header>
+            <div class="translate"><img src="/images/translate.svg" alt="Logo Translate"></div>
+            <a href="#">Qui suis-je ?</a>
+            <div class="Title">
+                <h1>MD5G</h1>
+            </div>
+            <a href="#">Contact</a>
+            <a href="#">Tarifs</a>
+        </header>
+        <main>
+            <div class="title-main">
+                <h2>Un site web rend tout possible</h2>
+                <a href="#">Me contacter <img src="/images/fleche-droite.png" alt="Fleche droite"></a>
+            </div>
+            <img loading="lazy" src="/images/geometric-head.gif" alt="Geometric Head">
+            <div class="adjectives-main">
+                <h3>Visibilité</h3>
+                <h4>Crédibilité</h4>
+            </div>
+        </main>
+        <section class="background-image">
+            <img src="images/cloud.webp" alt="Nuage" class="bg-cloud" loading="lazy">
+            <img src="images/cloud.webp" alt="Nuage" class="bg-cloud-1" loading="lazy">
+        </section>
     </section>
+
+    <section class="page-1">
+        <h2>Site Web</h2>
+        <h3>Création site internet WordPress dynamique, facilement administrable et performant.</h3>
+        <div class="page1-content">
+            <img class="rond" src="images/Ellipse 3.png" alt="Rond">
+            <img class="fleur" src="images/flower-with-petals-svgrepo-com 1.png" alt="Fleur">
+            <img class="rectangle" src="images/Rectangle 7.png" alt="Rectangle">
+            <img class="sablier" src="images/sablier.png" alt="Sablier">
+        </div>
+    </section>
+    <div class="horizontal-sections">
+        <section class="page-2">
+            <h2>Web Design</h2>
+            <h3>Mes sites sont étudiés pour être ergonomiques, aisément navigables et adaptés aux smartphones, tablettes
+                et stations de travail PC/MAC.</h3>
+            <div class="page2-content">
+                <img class="rond-p21" src="images/Ellipse 5.png" alt="Rond">
+                <img class="rond-p2" src="images/Ellipse 4.png" alt="Rond">
+                <img class="fleur-p2" src="images/fleur-p2.png" alt="Fleur">
+            </div>
+        </section>
+        <section class="page-3">
+            <h2>Outils d'administration</h2>
+            <h3>Exploitation des CMS leaders du marché : l'outil de gestion de contenu WordPress.</h3>
+        </section>
+        <section class="page-4">
+            <h2>Hébergement</h2>
+            <h3>Utilisation de serveurs hautes performances IONES associés à de multiples sauvegardes automatisées.</h3>
+        </section>
+        <section class="page-5">
+            <h2>Maintenance</h2>
+            <h3>Planification de mises à jour et optimisations techniques pour garantir à votre site internet fiabilité et performances.</h3>
+        </section>
+    </div>
+
+    <!-- GSAP -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/TextPlugin.min.js"></script>
+
+    <!-- Animation h3 et h4-->
+    <script>
+        const motsH3 = ["Visibilité", "Impact", "Présence"];
+        const motsH4 = ["Crédibilité", "Confiance", "Sérieux"];
+
+        const h3 = document.querySelector('.adjectives-main h3');
+        const h4 = document.querySelector('.adjectives-main h4');
+        let indexH3 = 0;
+        let indexH4 = 0;
+
+        function typeWriter(element, text, i = 0, callback) {
+            if (i <= text.length) {
+                element.textContent = text.slice(0, i);
+                setTimeout(() => typeWriter(element, text, i + 1, callback), 60);
+            } else if (callback) {
+                callback();
+            }
+        }
+
+        function changeWordH3() {
+            typeWriter(h3, motsH3[indexH3], 0, () => {
+                indexH3 = (indexH3 + 1) % motsH3.length;
+            });
+        }
+        function changeWordH4() {
+            typeWriter(h4, motsH4[indexH4], 0, () => {
+                indexH4 = (indexH4 + 1) % motsH4.length;
+            });
+        }
+
+        // Lancement initial
+        changeWordH3();
+        changeWordH4();
+        setInterval(() => {
+            changeWordH3();
+            changeWordH4();
+        }, 4000);
+    </script>
+    <!-- Script customGSAP -->
+    <script src="/scripts/script-index.js"></script>
+
+
+</body>
 
 </html>
