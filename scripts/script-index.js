@@ -5,14 +5,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const sections = document.querySelectorAll('.horizontal-sections section');
     const container = document.querySelector('.horizontal-sections');
 
-    if (container && sections.length > 0) {
+    const scrollWrapper = document.querySelector('.horizontal-scroll-wrapper');
+
+    if (scrollWrapper && container && sections.length > 0) {
+        let totalScroll = container.scrollWidth - window.innerWidth;
+
         gsap.to(container, {
-            xPercent: -100 * (sections.length - 1),
+            x: () => `-${totalScroll}px`,
             ease: 'none',
             scrollTrigger: {
-                trigger: container,
+                trigger: scrollWrapper,
                 start: 'top top',
-                end: () => '+=' + (window.innerWidth * (sections.length - 1)),
+                end: () => `+=${totalScroll}`,
                 pin: true,
                 scrub: 1,
                 anticipatePin: 1,
@@ -20,6 +24,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
             }
         });
     }
+
+    
 
     // Animation GSAP sur tous les éléments de la section .Home
     gsap.from('.Home header', {
@@ -133,3 +139,4 @@ document.addEventListener("DOMContentLoaded", (event) => {
         ease: 'sine.inOut'
     });
 });
+
