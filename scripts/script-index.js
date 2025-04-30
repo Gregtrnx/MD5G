@@ -216,5 +216,28 @@ document.addEventListener("DOMContentLoaded", (event) => {
             gsap.to(window, {duration: 1, scrollTo: '#tarifs', ease: 'power2.inOut'});
         });
     }
+
+    // Gestion sticky + couleur du header selon la section scrollée
+    const header = document.querySelector('header');
+    const homeSection = document.querySelector('.Home');
+    if (header && homeSection) {
+        ScrollTrigger.create({
+            trigger: homeSection,
+            start: 'bottom top', // quand le bas de Home touche le haut du viewport
+            onEnterBack: () => header.classList.remove('header-sticky'),
+            onLeave: () => header.classList.add('header-sticky'),
+            onLeaveBack: () => header.classList.remove('header-sticky'),
+        });
+    }
+
+    // Scroll fluide vers le haut quand on clique sur le h1 du header
+    const titleH1 = document.querySelector('.Title h1');
+    if (titleH1) {
+        titleH1.style.cursor = 'pointer';
+        titleH1.addEventListener('click', function(e) {
+            e.preventDefault();
+            gsap.to(window, {duration: 1, scrollTo: 0, ease: 'power2.inOut'});
+        });
+    }
 });
 
