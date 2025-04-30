@@ -138,5 +138,83 @@ document.addEventListener("DOMContentLoaded", (event) => {
         yoyo: true,
         ease: 'sine.inOut'
     });
+
+    // Animation flottante sur les éléments de la A qui parlez vous
+
+    gsap.to('.info :first-child', {
+        y: 10,
+        x: -15,
+        rotation: 2,
+        duration: 3.5,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut'
+    });
+
+    gsap.to('.info :last-child', {
+        y: -20,
+        x: 10,
+        rotation: 5,
+        duration: 4,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut'
+    });
+
+    gsap.to('.info:nth-child(2)', {
+        y: 15,
+        duration: 3,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut'
+    });
+
+    // Animation GSAP TextPlugin sur le titre .Me > h2 au scroll
+    const meH2 = document.querySelector('.Me > h2');
+    if (meH2) {
+        const originalText = meH2.textContent;
+        meH2.textContent = '';
+        gsap.to(meH2, {
+            duration: 2,
+            text: originalText,
+            ease: 'power1.inOut',
+            scrollTrigger: {
+                trigger: meH2,
+                start: 'top 80%', // quand le h2 entre dans le viewport
+                once: true // ne joue qu'une fois
+            }
+        });
+    }
+
+    // Animation GSAP sur le titre .tarifs > h2 au scroll
+    const tarifsH2 = document.querySelector('.tarifs > h2');
+    if (tarifsH2) {
+        gsap.from(tarifsH2, {
+            opacity: 0,
+            y: 80,
+            rotation: -8,
+            duration: 1.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: tarifsH2,
+                start: 'top 80%', // quand le h2 entre dans le viewport
+                once: true
+            }
+        });
+    }
+
+    // Scroll fluide avec GSAP ScrollTo pour les liens du header
+    const headerLinks = document.querySelectorAll('header > a');
+    if (headerLinks.length >= 3) {
+        // Le premier lien est "Qui suis-je ?", le troisième est "Tarifs"
+        headerLinks[0].addEventListener('click', function(e) {
+            e.preventDefault();
+            gsap.to(window, {duration: 1, scrollTo: '#Me', ease: 'power2.inOut'});
+        });
+        headerLinks[2].addEventListener('click', function(e) {
+            e.preventDefault();
+            gsap.to(window, {duration: 1, scrollTo: '#tarifs', ease: 'power2.inOut'});
+        });
+    }
 });
 
