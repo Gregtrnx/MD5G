@@ -39,7 +39,7 @@ header.header-sticky a {
 }
 
 header.header-sticky .translate {
-    border-color: #00000040;
+    filter: invert(1);
 }
 
 header.header-sticky > a::after {
@@ -82,10 +82,10 @@ header>a:hover::after {
     width: 100%;
 }
 
-.translate {
-    padding: 10px;
-    border: solid 2px #ffffff40;
-    border-radius: 100%;
+.translate img {
+    max-width: 40px;
+    max-height: 40px;
+    filter: invert(1);
 }
 
 h1 {
