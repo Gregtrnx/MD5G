@@ -135,33 +135,37 @@ main{
 .info-container{
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     color: #000;
     position: relative;
 }
 
 .info-container h2{
-    font-size: 4rem;
+    font-size: 6rem;
     font-weight: 600;
     width: min-content;
-    position: absolute;
+    /*position: absolute;
     bottom: 60%;
     left: 0;
-    transform: translateX(-70%) translateY(25%);
+    transform: translateX(-70%) translateY(25%);*/
 }
 
 .info-container p{
-    position: absolute;
+   /* position: absolute;
     bottom: 0;
     right: 0;
     transform: translateY(0%) translateX(10%);
-    text-align: justify;
+    text-align: justify;*/
     width: 30vw;
 }
 
-.info-container img{
-    z-index: -1;
+main img{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: -3;
+    transform: translateY(-60%) translateX(-200%);
+    width: 20%;
 }
 
 /**********************/
