@@ -21,7 +21,32 @@
         <a href="/pages/contact.html">Contact</a>
         <a href="/index.html">Tarifs</a>
     </header>
-    
+    <main>
+        <div class="contact-container">
+            <form class="form-contact">
+                <label for="nom">Votre nom</label>
+                <input type="text" id="nom" name="nom" required>
+                <label for="email">Votre email</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Votre message</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <button type="submit">ENVOYER</button>
+            </form>
+        </div>
+        <div class="info-container">
+            <h2>Me contacter</h2>
+            <img loading="lazy" src="/images/circle-contact.gif" alt="cercle mouvant">
+            <p>Il est très important pour moi de rester en contact avec vous, je suis donc toujours prêts à répondre à
+                vos questions !</p>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div>Numéro de téléphone : 07.78.03.04.25</div>
+            <div>E-mail : md5g@gmail.com</div>
+        </div>
+    </footer>
+
 
     <!-- GSAP -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
