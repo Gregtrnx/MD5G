@@ -403,10 +403,11 @@ main {
 .desc>p {
     width: 30vw;
     text-align: justify;
-    background-color: #00000030;
+    background-color: #00000015;
     border: solid 2px #ffffff40;
     border-radius: 50px;
     padding: 32px;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.08);
 }
 
 .info{
@@ -414,12 +415,13 @@ main {
 }
 
 .info >* {
-    background-color: #00000030;
+    background-color: #00000015;
     border: solid 2px #ffffff40;
     border-radius: 50px;
     padding: 32px;
     width: 12vw;
     text-align: center;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.08);
 }
 
 .info :first-child{
