@@ -324,6 +324,7 @@ main {
 .page-3 {
     background: #fff;
     color: #000;
+    position: relative;
 }
 
 .page-3>h2 {
@@ -337,6 +338,12 @@ main {
     margin-left: 5vw;
 }
 
+.page-3>img{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    max-width: 10%;
+}
 
 /**********************/
 /*******Page 4*******/

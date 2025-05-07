@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             x: () => `-${totalScroll}px`,
             ease: 'none',
             scrollTrigger: {
+                id: 'horizontalScroll',
                 trigger: scrollWrapper,
                 start: 'top top',
                 end: () => `+=${totalScroll}`,
@@ -23,6 +24,24 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 invalidateOnRefresh: true,
             }
         });
+
+        const page3Img = document.querySelector('.page-3 > img');
+        if (page3Img && scrollWrapper && container && sections.length > 0) {
+            let totalScroll = container.scrollWidth - window.innerWidth;
+            gsap.to(page3Img, {
+                rotation: 720,
+                x: 2500,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: scrollWrapper,
+                    start: 'top top',
+                    end: () => `+=${totalScroll}`,
+                    scrub: 1,
+                    anticipatePin: 1,
+                    invalidateOnRefresh: true,
+                }
+            });
+        }
     }
 
     
