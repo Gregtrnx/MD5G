@@ -385,6 +385,22 @@ main {
     margin-left: 5vw;
 }
 
+.page5-content {
+    position: relative;
+}
+
+.page5-content>.rond-p2 {
+    position: absolute;
+    top: -65vh;
+    right: -5vw;
+}
+
+.page5-content>.fleur-p2 {
+    position: absolute;
+    top: -65vh;
+    right: -5vw;
+}
+
 /**********************/
 /*******Me*******/
 /**********************/
