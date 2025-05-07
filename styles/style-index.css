@@ -248,6 +248,13 @@ main {
     left: 35%;
 }
 
+.ordi{
+    position: absolute;
+    top: 30vh;
+    left:30%;
+    transform: rotate(20deg);
+}
+
 /**********************/
 /*******Page 2 & Scroll*******/
 /**********************/
@@ -464,7 +471,7 @@ main {
 
 .tarifs{
     color: #fff;
-    min-height: 100vh;
+    min-height: 120vh;
 }
 
 .tarifs>h2 {

@@ -110,6 +110,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
         yoyo: true,
         ease: 'sine.inOut'
     });
+    gsap.to('.ordi', {
+        y: 25,
+        rotation: 12,
+        duration: 4.5,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut'
+    });
 
     // Animation flottante des nuages
     gsap.to('.bg-cloud', {
