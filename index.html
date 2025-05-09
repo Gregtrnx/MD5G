@@ -13,7 +13,13 @@
 
 <body>
     <header>
-        <div class="translate"><img src="/images/translate.png" alt="Logo Translate"></div>
+        <div class="translate">
+            <img src="/images/translate.png" alt="Logo Translate">
+            <div class="lang-menu" style="display:none;">
+                <div class="lang-option" data-lang="fr">Français</div>
+                <div class="lang-option" data-lang="en">English</div>
+            </div>
+        </div>
         <a href="#">Qui suis-je ?</a>
         <div class="Title">
             <h1>MD5G</h1>
@@ -73,7 +79,8 @@
                 </div>
                 <h2>Hébergement</h2>
                 <h3>Utilisation de serveurs hautes performances <span
-                        style="color : #001b41; font-weight: bold; font-style:italic;">IONOS</span> associés à de multiples sauvegardes
+                        style="color : #001b41; font-weight: bold; font-style:italic;">IONOS</span> associés à de
+                    multiples sauvegardes
                     automatisées.
                 </h3>
             </section>
@@ -204,6 +211,113 @@
             changeWordH3();
             changeWordH4();
         }, 4000);
+
+        const translateBtn = document.querySelector('.translate img');
+        const langMenu = document.querySelector('.lang-menu');
+        let currentLang = 'fr';
+
+        translateBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langMenu.style.display = langMenu.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Fermer le menu si on clique ailleurs
+        document.addEventListener('click', () => {
+            langMenu.style.display = 'none';
+        });
+
+        // Dictionnaire de traduction (exemple, à compléter selon ton contenu)
+        const translations = {
+            en: {
+                "Un site web rend tout possible": "A website makes anything possible",
+                "Me contacter": "Contact me",
+                "Visibilité": "Visibility",
+                "Crédibilité": "Credibility",
+                "Impact": "Impact",
+                "Présence": "Presence",
+                "Confiance": "Trust",
+                "Sérieux": "Seriousness",
+                "Site Web": "Website",
+                "Création site internet WordPress dynamique, facilement administrable et performant.": "Creation of dynamic, easily manageable and high-performance WordPress websites.",
+                "Web Design": "Web Design",
+                "Mes sites sont étudiés pour être ergonomiques, aisément navigables et adaptés aux smartphones, tablettes et stations de travail PC/MAC.": "My websites are designed to be ergonomic, easy to navigate, and adapted to smartphones, tablets, and PC/MAC workstations.",
+                "Outils d'administration": "Admin tools",
+                "Exploitation des CMS leaders du marché : l'outil de gestion de contenu WordPress.": "Using leading CMS: the WordPress content management tool.",
+                "Hébergement": "Hosting",
+                "Utilisation de serveurs hautes performances IONOS associés à de multiples sauvegardes automatisées.": "Use of high-performance IONOS servers with multiple automated backups.",
+                "Maintenance": "Maintenance",
+                "Planification de mises à jour et optimisations techniques pour garantir à votre site internet fiabilité et performances.": "Scheduling updates and technical optimizations to ensure your website's reliability and performance.",
+                "A qui parlez vous ?": "Who are you talking to?",
+                "Jeune étudiant en BUT MMI (Métier du multimédia et de l'internet). Je veux mettre au profit mes compétences acquise via mon expérience antérieur et via cette formation. A l'écoute, gentil, je serais parfaitement retranscrire ce que VOUS avez en tête ! Et si vous êtes à court d'inspiration laissé moi les commandes, je m'occupe de tout. Le développement web me permet de retranscrire ma créativité en quelque chose de matériel.": "Young student in Multimedia and Internet. I want to use my skills acquired through previous experience and this training. Attentive and kind, I will perfectly transcribe what YOU have in mind! And if you lack inspiration, let me take over, I'll handle everything. Web development allows me to turn my creativity into something tangible.",
+                "TOURNOUX Grégoire": "TOURNOUX Grégoire",
+                "20 ans": "20 years old",
+                "Mulhouse": "Mulhouse",
+                "Mes tarifs": "My prices",
+                'Pack "Site Vitrine Essentiel"': '"Essential Showcase Website" Pack',
+                "A partir de": "From",
+                "Idéal pour les petites entreprises, artisans et indépendants qui veulent une présence en ligne.": "Ideal for small businesses, craftsmen and freelancers who want an online presence.",
+                "Site web de 1 à 5 pages (Accueil, Service, A propos, Contact...)": "Website from 1 to 5 pages (Home, Service, About, Contact...)",
+                "Design personnalisé avec un template optimisé": "Custom design with an optimized template",
+                "Responsive (adapté mobile/tablette)": "Responsive (mobile/tablet friendly)",
+                "Formulaire de contact": "Contact form",
+                "Optimisation SEO de base": "Basic SEO optimization",
+                "Livraison sous 4 semaines": "Delivery within 4 weeks",
+                "Formation courte sur l'administration du site": "Short training on site administration",
+                'Pack "Site Pro & SEO"': '"Pro & SEO Website" Pack',
+                "Parfait pour ceux qui veulent un site performant et visible sur Google.": "Perfect for those who want a high-performance and visible site on Google.",
+                "Tout ce qui est inclus dans le pack Essentiel :": "Everything included in the Essential pack:",
+                "Site plus complet (5 à 10 pages)": "More complete site (5 to 10 pages)",
+                "SEO avancé (mots-clés, balises, sitemap, Google My Business)": "Advanced SEO (keywords, tags, sitemap, Google My Business)",
+                "Blog intégré avec 1 à 2 articles optimisés": "Integrated blog with 1 to 2 optimized articles",
+                "Intégration des réseaux sociaux et Google Analytics": "Social media and Google Analytics integration",
+                "Livraison sous 5 à 6 semaines": "Delivery within 5 to 6 weeks",
+                "Formation courte à l'administration du site": "Short training on site administration"
+            },
+            fr: {} // Pas besoin de traduction pour le français
+        };
+
+        // Fonction de traduction
+        function translatePage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('h1, h2, h3, h4, p, a, .lang-option, .prix > p, .info > div').forEach(el => {
+                const original = el.getAttribute('data-original') || el.textContent.trim();
+                if (!el.getAttribute('data-original')) el.setAttribute('data-original', original);
+                if (translations[lang][original]) {
+                    el.textContent = translations[lang][original];
+                } else if (lang === 'fr') {
+                    el.textContent = el.getAttribute('data-original');
+                }
+            });
+
+            // Cas particulier pour .liste > div (conserve l'image)
+            document.querySelectorAll('.liste > div').forEach(div => {
+                // On suppose que le texte à traduire est juste après l'image
+                const img = div.querySelector('img');
+                let textNode;
+                if (img) {
+                    // Cherche le nœud texte juste après l'image
+                    textNode = img.nextSibling;
+                    if (textNode && textNode.nodeType === Node.TEXT_NODE) {
+                        const original = div.getAttribute('data-original') || textNode.textContent.trim();
+                        if (!div.getAttribute('data-original')) div.setAttribute('data-original', original);
+                        if (translations[lang][original]) {
+                            textNode.textContent = ' ' + translations[lang][original];
+                        } else if (lang === 'fr') {
+                            textNode.textContent = ' ' + div.getAttribute('data-original');
+                        }
+                    }
+                }
+            });
+        }
+
+        // Gestion du clic sur une langue
+        document.querySelectorAll('.lang-option').forEach(option => {
+            option.addEventListener('click', (e) => {
+                const lang = e.target.getAttribute('data-lang');
+                translatePage(lang);
+                langMenu.style.display = 'none';
+            });
+        });
     </script>
     <!-- Script customGSAP -->
     <script src="/scripts/script-index.js"></script>
