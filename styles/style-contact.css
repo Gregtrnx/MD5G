@@ -75,7 +75,7 @@ main{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-top: 10vh;
+    margin-bottom: 10vh;
     position: relative;
 }
 
@@ -185,9 +185,7 @@ main img {
     box-shadow: inset 0 4px 4px 0 rgba(0,0,0,0.25);
     margin-top: auto;
     height: fit-content;
-    position: absolute;
     padding :32px;
-    bottom: 0%;
     width: 100%;
     gap: 5vw;
     padding-left: 5vw;

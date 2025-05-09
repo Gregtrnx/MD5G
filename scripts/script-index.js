@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     
 
     // Animation GSAP sur tous les éléments de la section .Home
-    gsap.from('.Home header', {
+    gsap.from('header>*', {
         opacity: 0,
         y: -40,
         duration: 1,
@@ -60,13 +60,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         duration: 1.2,
         ease: 'power2.out',
         delay: 0.3
-    });
-    gsap.from('.Home main > img', {
-        opacity: 0,
-        scale: 0.8,
-        duration: 1.2,
-        ease: 'power2.out',
-        delay: 0.5
     });
     gsap.from('.adjectives-main', {
         opacity: 0,
@@ -266,5 +259,194 @@ document.addEventListener("DOMContentLoaded", (event) => {
             gsap.to(window, {duration: 1, scrollTo: 0, ease: 'power2.inOut'});
         });
     }
+    // Animation onde/circuit sur la page 4 (version complexe)
+    function animateCircuitWave() {
+        const canvas = document.getElementById('circuit-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        function resizeCanvas() {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        let centerX = canvas.width / 2;
+        let centerY = canvas.height / 2;
+        let maxRadius = Math.max(canvas.width, canvas.height) * 0.7;
+        let progress = { r: 0 };
+        let animationFrame;
+
+        function drawComplexCircuit(ctx, centerX, centerY, r, time) {
+            ctx.save();
+            const branches = 10;
+            const steps = 5;
+            const angleStep = (Math.PI * 2) / branches;
+            const branchLength = r / steps;
+            for (let i = 0; i < branches; i++) {
+                let angle = i * angleStep;
+                let x = centerX;
+                let y = centerY;
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+                for (let j = 1; j <= steps; j++) {
+                    // Avance en ligne droite
+                    x += Math.cos(angle) * branchLength;
+                    y += Math.sin(angle) * branchLength;
+                    ctx.lineTo(x, y);
+
+                    // Noeud à chaque étape
+                    ctx.save();
+                    ctx.beginPath();
+                    ctx.arc(x, y, 3, 0, Math.PI * 2);
+                    ctx.fillStyle = '#00ffe7';
+                    ctx.globalAlpha = 0.5;
+                    ctx.fill();
+                    ctx.restore();
+
+                    // Ramification à angle droit (motif circuit)
+                    if (j < steps) {
+                        // Ramification horizontale
+                        let x2 = x + branchLength * 0.7 * (i % 2 === 0 ? 1 : -1);
+                        let y2 = y;
+                        ctx.lineTo(x2, y2);
+                        // Noeud sur la ramification
+                        ctx.save();
+                        ctx.beginPath();
+                        ctx.arc(x2, y2, 2, 0, Math.PI * 2);
+                        ctx.fillStyle = '#00ffe7';
+                        ctx.globalAlpha = 0.3;
+                        ctx.fill();
+                        ctx.restore();
+                        // Animation d'un point lumineux sur la ramification
+                        let t = (Math.sin(time / 400 + i + j) + 1) / 2;
+                        let px = x + (x2 - x) * t;
+                        let py = y;
+                        ctx.beginPath();
+                        ctx.arc(px, py, 1.5, 0, Math.PI * 2);
+                        ctx.fillStyle = '#fff';
+                        ctx.globalAlpha = 0.7;
+                        ctx.fill();
+                        ctx.globalAlpha = 0.7;
+                        // Reviens sur la branche principale
+                        ctx.moveTo(x, y);
+                        // Ramification verticale (motif grille)
+                        let x3 = x;
+                        let y3 = y + branchLength * 0.7 * (j % 2 === 0 ? 1 : -1);
+                        ctx.lineTo(x3, y3);
+                        // Noeud sur la ramification
+                        ctx.save();
+                        ctx.beginPath();
+                        ctx.arc(x3, y3, 2, 0, Math.PI * 2);
+                        ctx.fillStyle = '#00ffe7';
+                        ctx.globalAlpha = 0.3;
+                        ctx.fill();
+                        ctx.restore();
+                        // Animation d'un point lumineux sur la ramification verticale
+                        let t2 = (Math.cos(time / 400 + i - j) + 1) / 2;
+                        let py2 = y + (y3 - y) * t2;
+                        ctx.beginPath();
+                        ctx.arc(x, py2, 1.5, 0, Math.PI * 2);
+                        ctx.fillStyle = '#fff';
+                        ctx.globalAlpha = 0.7;
+                        ctx.fill();
+                        ctx.globalAlpha = 0.7;
+                        ctx.moveTo(x, y);
+                    }
+                }
+                ctx.strokeStyle = '#00ffe7';
+                ctx.lineWidth = 1.5;
+                ctx.globalAlpha = 0.5;
+                ctx.stroke();
+                // Animation d'un point lumineux sur la branche principale
+                let t = (Math.sin(time / 600 + i) + 1) / 2;
+                let px = centerX + Math.cos(angle) * branchLength * steps * t;
+                let py = centerY + Math.sin(angle) * branchLength * steps * t;
+                ctx.beginPath();
+                ctx.arc(px, py, 3, 0, Math.PI * 2);
+                ctx.fillStyle = '#fff';
+                ctx.globalAlpha = 0.7;
+                ctx.shadowColor = '#00ffe7';
+                ctx.shadowBlur = 6;
+                ctx.fill();
+                ctx.shadowBlur = 0;
+                ctx.globalAlpha = 0.5;
+            }
+            ctx.restore();
+        }
+
+        function render() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, progress.r, 0, Math.PI * 2);
+            // Dégradé dynamique
+            let grad = ctx.createRadialGradient(centerX, centerY, progress.r * 0.7, centerX, centerY, progress.r);
+            grad.addColorStop(0, '#00ffe7');
+            grad.addColorStop(1, '#001b41');
+            ctx.strokeStyle = grad;
+            ctx.lineWidth = 8;
+            // Ajout d'un fondu en fin d'animation
+            let fade = 1;
+            if (progress.r > maxRadius * 0.85) {
+                fade = 1 - (progress.r - maxRadius * 0.85) / (maxRadius * 0.15);
+                fade = Math.max(0, Math.min(1, fade));
+            }
+            ctx.globalAlpha = 0.8 * fade;
+            ctx.shadowColor = '#00ffe7';
+            ctx.shadowBlur = 30 * fade;
+            ctx.stroke();
+            ctx.restore();
+            // Circuit complexe avec animation
+            if (fade > 0) {
+                drawComplexCircuit(ctx, centerX, centerY, progress.r, Date.now());
+            }
+        }
+
+        function renderLoop() {
+            render();
+            animationFrame = requestAnimationFrame(renderLoop);
+        }
+
+        gsap.fromTo(progress, { r: 0 }, {
+            r: maxRadius,
+            duration: 1.5,
+            ease: "power2.out",
+            onStart: () => {
+                centerX = canvas.width / 2;
+                centerY = canvas.height / 2;
+                maxRadius = Math.max(canvas.width, canvas.height) * 0.7;
+                // Mettre le texte en grand (sans yoyo)
+                const h2 = document.querySelector('.page-4 > h2');
+                const h3 = document.querySelector('.page-4 > h3');
+                if (h2 && h3) {
+                    gsap.set(h2, { scale: 1 });
+                    gsap.set(h3, { scale: 1 });
+                }
+                // Animation du glow sur IONOS
+                const ionos = document.querySelector('.page-4 h3 span');
+                if (ionos) {
+                    gsap.fromTo(ionos,
+                        { color: '#001b41', textShadow: '0 0 0px #00ffe7' },
+                        { color: '#00bfff', textShadow: '0 0 24px #00ffe7, 0 0 8px #00bfff', duration: 1.5, ease: 'power2.out',
+                          onComplete: () => {
+                              gsap.to(ionos, { color: '#001b41', textShadow: '0 0 0px #00ffe7', duration: 0.8, delay: 0.2 });
+                          }
+                        }
+                    );
+                }
+                renderLoop();
+            },
+            onUpdate: render,
+            onComplete: () => {
+                cancelAnimationFrame(animationFrame);
+            }
+        });
+    }
+
+    // Lancer l'animation en boucle toutes les 5 secondes
+    setInterval(animateCircuitWave, 10000);
+    // Lancer une première fois au chargement
+    animateCircuitWave();
 });
 
