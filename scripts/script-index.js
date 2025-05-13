@@ -111,6 +111,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
         yoyo: true,
         ease: 'sine.inOut'
     });
+    gsap.to('.mobile', {
+        y: 5,
+        rotation: -1.5,
+        duration: 3.5,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut'
+    });
 
     // Animation flottante des nuages
     gsap.to('.bg-cloud', {
@@ -445,8 +453,19 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
 
     // Lancer l'animation en boucle toutes les 5 secondes
-    setInterval(animateCircuitWave, 10000);
+    setInterval(animateCircuitWave, 7000);
     // Lancer une première fois au chargement
     animateCircuitWave();
+
+    // --- Ajout pour scroll après redirection depuis contact.html ---
+    const scrollTarget = localStorage.getItem('scrollToTarget');
+    if (scrollTarget) {
+        if (scrollTarget === 'top') {
+            gsap.to(window, {duration: 1, scrollTo: 0, ease: 'power2.inOut'});
+        } else {
+            gsap.to(window, {duration: 1, scrollTo: scrollTarget, ease: 'power2.inOut'});
+        }
+        localStorage.removeItem('scrollToTarget');
+    }
 });
 

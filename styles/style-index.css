@@ -30,7 +30,7 @@ header {
 header.header-sticky {
     background: #fff;
     color: #000;
-    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.08);
+    box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.08);
     z-index: 9999;
 }
 
@@ -42,7 +42,7 @@ header.header-sticky .translate {
     filter: invert(1);
 }
 
-header.header-sticky > a::after {
+header.header-sticky>a::after {
     content: '';
     display: block;
     position: absolute;
@@ -95,20 +95,23 @@ header>a:hover::after {
     background: #fff;
     color: #000;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     z-index: 10000;
     min-width: 100px;
     font-size: 1rem;
     padding: 8px 0;
 }
+
 .lang-option {
     padding: 8px 16px;
     cursor: pointer;
     transition: background 0.2s;
 }
+
 .lang-option:hover {
     background: #f0f0f0;
 }
+
 .translate {
     position: relative;
 }
@@ -153,8 +156,8 @@ h1 {
     padding: 10px;
 }
 
-.title-main > h2{
-    margin-top:0;
+.title-main>h2 {
+    margin-top: 0;
 }
 
 main {
@@ -276,11 +279,19 @@ main {
     left: 35%;
 }
 
-.ordi{
+.ordi {
     position: absolute;
     top: 30vh;
-    left:30%;
+    left: 30%;
     transform: rotate(20deg);
+}
+
+.mobile {
+    position: absolute;
+    top: -20vh;
+    left: 68%;
+    width: 18%;
+    filter: blur(2px);
 }
 
 /**********************/
@@ -299,8 +310,8 @@ main {
     height: 100vh;
     position: relative;
     overflow: hidden;
-  }
-  
+}
+
 
 .page-2,
 .page-3,
@@ -373,7 +384,7 @@ main {
     margin-left: 5vw;
 }
 
-.page-3>img{
+.page-3>img {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -392,7 +403,10 @@ main {
 
 .page-4 .circuit-bg {
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: 0;
     pointer-events: none;
     background: #ffffff;
@@ -404,14 +418,16 @@ main {
     display: block;
 }
 
-.page-4 > h2, .page-4 > h3 {
+.page-4>h2,
+.page-4>h3 {
     left: 0;
     color: #000;
     font-size: 2.5rem;
-    margin-left: 5vw; /* h2 */
+    margin-left: 5vw;
+    /* h2 */
 }
 
-.page-4 > h3 {
+.page-4>h3 {
     font-size: 2rem;
     font-weight: 400;
     margin-left: 5vw;
@@ -482,29 +498,30 @@ main {
     border: solid 2px #ffffff40;
     border-radius: 50px;
     padding: 32px;
-    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.08);
+    box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.08);
 }
 
-.info{
-    position : relative;
+.info {
+    position: relative;
 }
 
-.info >* {
+.info>* {
     background-color: #00000015;
     border: solid 2px #ffffff40;
     border-radius: 50px;
     padding: 32px;
     width: 12vw;
     text-align: center;
-    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.08);
+    box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.08);
 }
 
-.info :first-child{
+.info :first-child {
     position: absolute;
     top: -80%;
-    right : 120%;
+    right: 120%;
 }
-.info :last-child{
+
+.info :last-child {
     position: absolute;
     bottom: 10;
     right: 120%;
@@ -514,7 +531,7 @@ main {
 /*******Tarifs*******/
 /**********************/
 
-.tarifs{
+.tarifs {
     color: #fff;
     min-height: 120vh;
 }
@@ -526,30 +543,28 @@ main {
     margin-left: 5vw;
 }
 
-.tarifs-content{
+.tarifs-content {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
 
-.tarifs-content1{
+.tarifs-content1 {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     color: #000000;
     width: fit-content;
-    background: linear-gradient(180deg,rgba(250, 250, 250, 1) 0%, rgba(34, 34, 34, 0.2) 100%);
+    background: linear-gradient(180deg, rgba(250, 250, 250, 1) 0%, rgba(34, 34, 34, 0.2) 100%);
     border: solid 2px #ffffff40;
     border-radius: 50px;
     padding: 32px;
     max-width: 25vw;
-    box-shadow:4px 4px 10px 4px rgba(0,0,0,0.15)
-
-
+    box-shadow: 4px 4px 10px 4px rgba(0, 0, 0, 0.15)
 }
 
-.tarifs-content1 > h3{
+.tarifs-content1>h3 {
     font-size: 1.3rem;
     font-weight: 400;
     border-bottom: solid 1px #000000;
@@ -557,7 +572,7 @@ main {
     margin-top: 0;
 }
 
-.prix{
+.prix {
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -565,7 +580,7 @@ main {
     border-bottom: solid 1px #000000;
 }
 
-.prix > a{
+.prix>a {
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -576,64 +591,56 @@ main {
     border-radius: 5px;
 }
 
-.prix > a > img{
+.prix>a>img {
     margin-left: auto;
 }
 
-.prix > p{
-    margin : 0;
+.prix>p {
+    margin: 0;
 }
 
-.prix :nth-child(2){
+.prix :nth-child(2) {
     font-size: 2rem;
     font-weight: 600;
 }
 
-.liste{
+.liste {
     display: flex;
     flex-direction: column;
     gap: 12px;
     padding-top: 24px;
 }
 
-.liste > div > img{
+.liste>div>img {
     max-width: 24px;
     max-height: 24px;
 }
 
-.liste > div{
+.liste>div {
     display: flex;
     align-items: center;
     gap: 12px;
 }
 
-.tarifs-content2{
+.tarifs-content2 {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     color: #000000;
     width: fit-content;
-    background: linear-gradient(180deg, rgba(34, 34, 34, 0.15) 0%,rgba(250, 250, 250, 1) 100%);
+    background: linear-gradient(180deg, rgba(34, 34, 34, 0.15) 0%, rgba(250, 250, 250, 1) 100%);
     border: solid 2px #ffffff40;
     border-radius: 50px;
     padding: 32px;
     max-width: 25vw;
-    box-shadow:4px 4px 10px 4px rgba(0,0,0,0.15)
-
-
+    box-shadow: 4px 4px 10px 4px rgba(0, 0, 0, 0.15)
 }
 
-.tarifs-content2 > h3{
+.tarifs-content2>h3 {
     font-size: 1.3rem;
     font-weight: 400;
     border-bottom: solid 1px #000000;
     padding-bottom: 32px;
     margin-top: 0;
 }
-
-
-
-
-
-
