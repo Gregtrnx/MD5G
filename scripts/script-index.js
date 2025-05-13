@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", (event) => {
-    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, TextPlugin)
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, TextPlugin, CustomEase, Physics2DPlugin, Flip, ScrambleTextPlugin);
     // gsap code here!
 
     const sections = document.querySelectorAll('.horizontal-sections section');
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
     }
 
-    
+
 
     // Animation GSAP sur tous les éléments de la section .Home
     gsap.from('header>*', {
@@ -69,56 +69,131 @@ document.addEventListener("DOMContentLoaded", (event) => {
         delay: 0.7
     });
 
-    // Animation flottante sur les éléments de la page 1
-    gsap.to('.rond', {
-        y: 30,
-        duration: 3,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut'
-    });
-    gsap.to('.fleur', {
-        y: -20,
-        x: 10,
-        rotation: 8,
-        duration: 4,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut'
-    });
-    gsap.to('.rectangle', {
-        y: 15,
-        x: -15,
-        rotation: -6,
-        duration: 3.5,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut'
-    });
-    gsap.to('.sablier', {
-        y: 25,
-        rotation: 12,
-        duration: 4.5,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut'
-    });
-    gsap.to('.ordi', {
-        y: 25,
-        rotation: 12,
-        duration: 4.5,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut'
-    });
-    gsap.to('.mobile', {
-        y: 5,
-        rotation: -1.5,
-        duration: 3.5,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut'
-    });
+    // Apparition spectaculaire des éléments de la page 1
+    const page1 = document.querySelector('.page-1');
+    if (page1) {
+        // Animation du titre avec ScrambleText
+        const h2 = page1.querySelector('h2');
+        if (h2) {
+            gsap.fromTo(h2, {
+                opacity: 0,
+                y: 100,
+                scrambleText: { text: "Chargement...", chars: "01!@#$%^&*" }
+            }, {
+                opacity: 1,
+                y: 0,
+                scrambleText: { text: h2.textContent, chars: "01!@#$%^&*" },
+                duration: 1.5,
+                ease: "expo.out",
+                scrollTrigger: {
+                    trigger: page1,
+                    start: "top 80%",
+                    once: true
+                }
+            });
+        }
+
+        // Timeline pour les images, déclenchée par ScrollTrigger
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: page1,
+                start: "top 80%",
+                once: true
+            },
+            onComplete: startFloatAnimationsPage1
+        });
+
+        tl.from('.page-1 .rond', {
+            y: -200,
+            opacity: 0,
+            scale: 0.2,
+            duration: 1.2,
+            ease: CustomEase.create("custom", "M0,0 C0.2,1 0.8,0 1,1")
+        })
+            .from('.page-1 .fleur', {
+                opacity: 0,
+                physics2D: { velocity: 200, angle: 220, gravity: 400 },
+                duration: 1.2
+            }, "-=0.3")
+            .from('.page-1 .rectangle', {
+                y: -200,
+                opacity: 0,
+                duration: 1.1,
+                ease: "rough({ template: power0.none, strength: 1, points: 20, taper: 'none', randomize: true, clamp: false})"
+            }, "-=0.3")
+            .from('.page-1 .sablier', {
+                rotationY: 720,
+                opacity: 0,
+                duration: 1.2,
+                ease: "expo.out"
+            }, "-=0.3")
+            .from('.page-1 .ordi', {
+                scale: 0.2,
+                opacity: 0,
+                duration: 1.2,
+                ease: "expoScale(0.2,1,1)"
+            }, "-=0.3")
+            .from('.page-1 .mobile', {
+                y: -300,
+                opacity: 0,
+                rotation: -90,
+                duration: 1.2,
+                ease: "elastic.out(1,0.3)"
+            }, "-=0.2");
+    }
+
+    // Fonction d'animations de flottaison
+    function startFloatAnimationsPage1() {
+        gsap.to('.page-1 .rond', {
+            y: "+=30",
+            duration: 3,
+            repeat: -1,
+            yoyo: true,
+            ease: 'sine.inOut'
+        });
+        gsap.to('.page-1 .fleur', {
+            y: "-=20",
+            x: "+=10",
+            rotation: "+=8",
+            duration: 4,
+            repeat: -1,
+            yoyo: true,
+            ease: 'sine.inOut'
+        });
+        gsap.to('.page-1 .rectangle', {
+            y: "+=15",
+            x: "-=15",
+            rotation: "-=6",
+            duration: 3.5,
+            repeat: -1,
+            yoyo: true,
+            ease: 'sine.inOut'
+        });
+        gsap.to('.page-1 .sablier', {
+            y: "+=25",
+            rotation: "+=12",
+            duration: 4.5,
+            repeat: -1,
+            yoyo: true,
+            ease: 'sine.inOut'
+        });
+        gsap.to('.page-1 .ordi', {
+            y: "+=25",
+            rotation: "+=8",
+            duration: 4.5,
+            repeat: -1,
+            yoyo: true,
+            ease: 'sine.inOut'
+        });
+        gsap.to('.page-1 .mobile', {
+            y: "+=5",
+            rotation: "-=1.5",
+            duration: 3.5,
+            repeat: -1,
+            yoyo: true,
+            ease: 'sine.inOut'
+        });
+    }
 
     // Animation flottante des nuages
     gsap.to('.bg-cloud', {
@@ -235,13 +310,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const headerLinks = document.querySelectorAll('header > a');
     if (headerLinks.length >= 3) {
         // Le premier lien est "Qui suis-je ?", le troisième est "Tarifs"
-        headerLinks[0].addEventListener('click', function(e) {
+        headerLinks[0].addEventListener('click', function (e) {
             e.preventDefault();
-            gsap.to(window, {duration: 1, scrollTo: '#Me', ease: 'power2.inOut'});
+            gsap.to(window, { duration: 1, scrollTo: '#Me', ease: 'power2.inOut' });
         });
-        headerLinks[2].addEventListener('click', function(e) {
+        headerLinks[2].addEventListener('click', function (e) {
             e.preventDefault();
-            gsap.to(window, {duration: 1, scrollTo: '#tarifs', ease: 'power2.inOut'});
+            gsap.to(window, { duration: 1, scrollTo: '#tarifs', ease: 'power2.inOut' });
         });
     }
 
@@ -262,9 +337,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const titleH1 = document.querySelector('.Title h1');
     if (titleH1) {
         titleH1.style.cursor = 'pointer';
-        titleH1.addEventListener('click', function(e) {
+        titleH1.addEventListener('click', function (e) {
             e.preventDefault();
-            gsap.to(window, {duration: 1, scrollTo: 0, ease: 'power2.inOut'});
+            gsap.to(window, { duration: 1, scrollTo: 0, ease: 'power2.inOut' });
         });
     }
     // Animation onde/circuit sur la page 4 (version complexe)
@@ -436,10 +511,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 if (ionos) {
                     gsap.fromTo(ionos,
                         { color: '#001b41', textShadow: '0 0 0px #00ffe7' },
-                        { color: '#00bfff', textShadow: '0 0 24px #00ffe7, 0 0 8px #00bfff', duration: 1.5, ease: 'power2.out',
-                          onComplete: () => {
-                              gsap.to(ionos, { color: '#001b41', textShadow: '0 0 0px #00ffe7', duration: 0.8, delay: 0.2 });
-                          }
+                        {
+                            color: '#00bfff', textShadow: '0 0 24px #00ffe7, 0 0 8px #00bfff', duration: 1.5, ease: 'power2.out',
+                            onComplete: () => {
+                                gsap.to(ionos, { color: '#001b41', textShadow: '0 0 0px #00ffe7', duration: 0.8, delay: 0.2 });
+                            }
                         }
                     );
                 }
@@ -461,9 +537,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const scrollTarget = localStorage.getItem('scrollToTarget');
     if (scrollTarget) {
         if (scrollTarget === 'top') {
-            gsap.to(window, {duration: 1, scrollTo: 0, ease: 'power2.inOut'});
+            gsap.to(window, { duration: 1, scrollTo: 0, ease: 'power2.inOut' });
         } else {
-            gsap.to(window, {duration: 1, scrollTo: scrollTarget, ease: 'power2.inOut'});
+            gsap.to(window, { duration: 1, scrollTo: scrollTarget, ease: 'power2.inOut' });
         }
         localStorage.removeItem('scrollToTarget');
     }
