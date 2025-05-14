@@ -3,44 +3,37 @@
 
 <head>
     <meta charset="UTF-8">
-    <script>
-        function goMobile() {
-            return window.innerWidth <= 900;
-        }
+    <!--<script>
         function goDesktop() {
             return window.innerWidth > 900;
         }
         // Redirection au chargement
-        if (goMobile() && !window.location.pathname.includes('index-mobile.html')) {
-            window.location.href = "/index-mobile.html";
-            Location.reload();
-        }
-        if (goDesktop() && window.location.pathname.includes('index-mobile.html')) {
+        if (goDesktop()) {
             window.location.href = "/index.html";
             Location.reload();
         }
         // Redirection dynamique au redimensionnement
         window.addEventListener('resize', function () {
-            if (goMobile() && !window.location.pathname.includes('index-mobile.html')) {
-                window.location.href = "/index-mobile.html";
-                Location.reload();
-            }
             if (goDesktop() && window.location.pathname.includes('index-mobile.html')) {
                 window.location.href = "/index.html";
                 Location.reload();
             }
         });
-    </script>
+    </script>-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MD5G - Concepteur de Site Web</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles/style-index.css">
+    <link rel="stylesheet" href="/styles/style-mobile.css">
 </head>
 
 <body>
     <header>
+        <img src="/images/burger-bar.png" alt="burger">
+        <div class="Title">
+            <h1>MD5G</h1>
+        </div>
         <div class="translate">
             <img src="/images/translate.png" alt="Logo Translate">
             <div class="lang-menu" style="display:none;">
@@ -48,158 +41,18 @@
                 <div class="lang-option" data-lang="en">English</div>
             </div>
         </div>
-        <a href="#">Qui suis-je ?</a>
-        <div class="Title">
-            <h1>MD5G</h1>
-        </div>
-        <a href="/pages/contact.html">Contact</a>
-        <a href="#">Tarifs</a>
     </header>
-    <section class="Home">
-        <main>
-            <div class="title-main">
-                <h2>Un site web rend tout possible</h2>
-                <a href="/pages/contact.html">Me contacter <img src="/images/fleche-droite.png" alt="Fleche droite"></a>
-            </div>
-            <div class="adjectives-main">
-                <h3>Visibilité</h3>
-                <h4>Crédibilité</h4>
-            </div>
-        </main>
-        <section class="background-image">
-            <img src="images/cloud.webp" alt="Nuage" class="bg-cloud" loading="lazy">
-            <img src="images/cloud.webp" alt="Nuage" class="bg-cloud-1" loading="lazy">
-        </section>
+    <main>
+        <div class="title-main">
+            <h2>Un site web rend tout possible</h2>
+            <a href="/pages/contact.html">Me contacter <img src="/images/fleche-droite.png" alt="Fleche droite"></a>
+        </div><img src="/images/head-3d.gif" alt="geometric head">
+    </main>
+    <section class="background-image">
+        <img src="/images/cloud.webp" alt="Nuage" class="bg-cloud" loading="lazy">
+        <img src="/images/cloud.webp" alt="Nuage" class="bg-cloud-1" loading="lazy">
     </section>
 
-    <section class="page-1">
-        <h2>Site Web</h2>
-        <h3>Création site internet WordPress dynamique, facilement administrable et performant.</h3>
-        <div class="page1-content">
-            <img class="rond" src="images/Ellipse 3.png" alt="Rond">
-            <img class="fleur" src="images/flower-with-petals-svgrepo-com 1.png" alt="Fleur">
-            <img class="rectangle" src="images/Rectangle 7.png" alt="Rectangle">
-            <img class="sablier" src="images/sablier.png" alt="Sablier">
-            <img class="ordi" src="images/Apple Pro Display XDR.png" alt="écran apple pro">
-            <img class="mobile" src="images/mobile.png" alt="mockup iphone">
-        </div>
-    </section>
-    <div class="horizontal-scroll-wrapper">
-        <div class="horizontal-sections">
-            <section class="page-2">
-                <h2>Web Design</h2>
-                <h3>Mes sites sont étudiés pour être ergonomiques, aisément navigables et adaptés aux <span
-                        style="font-weight: bold;">smartphones,
-                        tablettes</span>
-                    et stations de travail <span style="font-weight: bold;">PC/MAC</span>.</h3>
-                <div class="page2-content">
-                    <img class="rond-p21" src="images/Ellipse 5.png" alt="Rond">
-                    <img class="rond-p2" src="images/Ellipse 4.png" alt="Rond">
-                    <img class="fleur-p2" src="images/fleur-p2.png" alt="Fleur">
-                </div>
-            </section>
-            <section class="page-3">
-                <h2>Outils d'administration</h2>
-                <h3>Exploitation des <span style="font-weight: bold;">CMS</span> leaders du marché : l'outil de gestion
-                    de contenu <span style="font-weight: bold;">WordPress</span>.</h3>
-                <img src="/images/logo-wordpress.png" alt="logo-wordpress">
-            </section>
-            <section class="page-4">
-                <div class="circuit-bg">
-                    <canvas id="circuit-canvas"></canvas>
-                </div>
-                <h2>Hébergement</h2>
-                <h3>Utilisation de serveurs hautes performances <span
-                        style="color : #001b41; font-weight: bold; font-style:italic;">IONOS</span> associés à de
-                    multiples sauvegardes
-                    automatisées.
-                </h3>
-            </section>
-            <section class="page-5">
-                <h2>Maintenance</h2>
-                <h3>Planification de mises à jour et optimisations techniques pour garantir à votre site internet
-                    fiabilité
-                    et performances.</h3>
-                <div class="page5-content">
-                    <img class="rond-p2" src="images/Ellipse 4.png" alt="Rond">
-                    <img class="fleur-p2" src="images/fleur-p2.png" alt="Fleur">
-                </div>
-            </section>
-        </div>
-    </div>
-
-    <section class="Me" id="Me">
-        <h2>A qui parlez vous ?</h2>
-        <section class="desc">
-            <p>Jeune étudiant en BUT MMI (Métier du multimédia et de l'internet). Je veux mettre au profit mes
-                compétences acquise via mon expérience antérieur et via cette formation. A l'écoute, gentil, je serais
-                parfaitement retranscrire ce que <span style="font-weight: bold;">VOUS</span> avez en tête ! Et si vous
-                êtes à court d'inspiration laissé moi
-                les commandes, je m'occupe de tout. Le développement web me permet de retranscrire ma créativité en
-                quelque chose de matériel. </p>
-            <div class="info">
-                <div>TOURNOUX Grégoire</div>
-                <div>20 ans</div>
-                <div>Mulhouse</div>
-            </div>
-        </section>
-    </section>
-
-    <section class="tarifs" id="tarifs">
-        <h2>Mes tarifs</h2>
-        <section class="tarifs-content">
-            <div class="tarifs-content1">
-                <h3>Pack "Site Vitrine Essentiel"</h3>
-                <div class="prix">
-                    <p>A partir de</p>
-                    <p>800e</p>
-                    <p>Idéal pour les petites entreprises, artisans et indépendants qui veulent une présence en ligne.
-                    </p>
-                    <a href="/pages/contact.html" class="btn-tarifs">Me contacter <img src="/images/fleche-droite.png"
-                            alt="Fleche droite"></a>
-                </div>
-                <div class="liste">
-                    <div><img src="/images/check-svgrepo-com.svg" alt="Check">Site web de 1 à 5 pages (Accueil, Service,
-                        A
-                        propos, Contact...)</div>
-                    <div><img src="/images/check-svgrepo-com.svg" alt="Check">Design personnalisé avec un template
-                        optimisé
-                    </div>
-                    <div><img src="/images/check-svgrepo-com.svg" alt="Check">Responsive (adapté mobile/tablette)</div>
-                    <div><img src="/images/check-svgrepo-com.svg" alt="Check">Formulaire de contact</div>
-                    <div><img src="/images/check-svgrepo-com.svg" alt="Check">Optimisation SEO de base</div>
-                    <div><img src="/images/check-svgrepo-com.svg" alt="Check">Livraison sous 4 semaines</div>
-                    <div><img src="/images/check-svgrepo-com.svg" alt="Check">Formation courte sur l'administration du
-                        site
-                    </div>
-                </div>
-            </div>
-            <div class="tarifs-content2">
-                <h3>Pack "Site Pro & SEO"</h3>
-                <div class="prix">
-                    <p>A partir de</p>
-                    <p>1500e</p>
-                    <p>Parfait pour ceux qui veulent un site performant et visible sur Google.</p>
-                    <a href="/pages/contact.html">Me contacter <img src="/images/fleche-droite.png"
-                            alt="Fleche droite"></a>
-                </div>
-                <div class="liste">
-                    <div>Tout ce qui est inclus dans le pack Essentiel :</div>
-                    <div><img src="/images/check-svgrepo-com.svg" alt="Check">Site plus complet (5 à 10 pages)
-                    </div>
-                    <div><img src="/images/check-svgrepo-com.svg" alt="Check">SEO avancé (mots-clés, balises, sitemap,
-                        Google My Business)</div>
-                    <div><img src="/images/check-svgrepo-com.svg" alt="Check">Blog intégré avec 1 à 2 articles optimisés
-                    </div>
-                    <div><img src="/images/check-svgrepo-com.svg" alt="Check">Intégration des réseaux sociaux et Google
-                        Analytics</div>
-                    <div><img src="/images/check-svgrepo-com.svg" alt="Check">Livraison sous 5 à 6 semaines</div>
-                    <div><img src="/images/check-svgrepo-com.svg" alt="Check">Formation courte à l'administration du
-                        site</div>
-                </div>
-            </div>
-        </section>
-    </section>
 
     <!-- GSAP -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
@@ -213,41 +66,6 @@
 
     <!-- Animation h3 et h4-->
     <script>
-        const motsH3 = ["Visibilité", "Impact", "Présence"];
-        const motsH4 = ["Crédibilité", "Confiance", "Sérieux"];
-
-        const h3 = document.querySelector('.adjectives-main h3');
-        const h4 = document.querySelector('.adjectives-main h4');
-        let indexH3 = 0;
-        let indexH4 = 0;
-
-        function typeWriter(element, text, i = 0, callback) {
-            if (i <= text.length) {
-                element.textContent = text.slice(0, i);
-                setTimeout(() => typeWriter(element, text, i + 1, callback), 60);
-            } else if (callback) {
-                callback();
-            }
-        }
-
-        function changeWordH3() {
-            typeWriter(h3, motsH3[indexH3], 0, () => {
-                indexH3 = (indexH3 + 1) % motsH3.length;
-            });
-        }
-        function changeWordH4() {
-            typeWriter(h4, motsH4[indexH4], 0, () => {
-                indexH4 = (indexH4 + 1) % motsH4.length;
-            });
-        }
-
-        // Lancement initial
-        changeWordH3();
-        changeWordH4();
-        setInterval(() => {
-            changeWordH3();
-            changeWordH4();
-        }, 4000);
 
         const translateBtn = document.querySelector('.translate img');
         const langMenu = document.querySelector('.lang-menu');

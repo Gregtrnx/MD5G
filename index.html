@@ -7,26 +7,15 @@
         function goMobile() {
             return window.innerWidth <= 900;
         }
-        function goDesktop() {
-            return window.innerWidth > 900;
-        }
         // Redirection au chargement
-        if (goMobile() && !window.location.pathname.includes('index-mobile.html')) {
-            window.location.href = "/index-mobile.html";
-            Location.reload();
-        }
-        if (goDesktop() && window.location.pathname.includes('index-mobile.html')) {
-            window.location.href = "/index.html";
+        if (goMobile()) {
+            window.location.href = "/pages/index-mobile.html";
             Location.reload();
         }
         // Redirection dynamique au redimensionnement
         window.addEventListener('resize', function () {
             if (goMobile() && !window.location.pathname.includes('index-mobile.html')) {
-                window.location.href = "/index-mobile.html";
-                Location.reload();
-            }
-            if (goDesktop() && window.location.pathname.includes('index-mobile.html')) {
-                window.location.href = "/index.html";
+                window.location.href = "/pages/index-mobile.html";
                 Location.reload();
             }
         });
