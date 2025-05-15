@@ -9,13 +9,13 @@
         }
         // Redirection au chargement
         if (goMobile()) {
-            window.location.href = "/pages/index-mobile.html";
+            window.location.href = "pages/index-mobile.html";
             Location.reload();
         }
         // Redirection dynamique au redimensionnement
         window.addEventListener('resize', function () {
             if (goMobile() && !window.location.pathname.includes('index-mobile.html')) {
-                window.location.href = "/pages/index-mobile.html";
+                window.location.href = "pages/index-mobile.html";
                 Location.reload();
             }
         });
@@ -31,7 +31,7 @@
 <body>
     <header>
         <div class="translate">
-            <img src="/images/translate.png" alt="Logo Translate">
+            <img src="images/translate.png" alt="Logo Translate">
             <div class="lang-menu" style="display:none;">
                 <div class="lang-option" data-lang="fr">Français</div>
                 <div class="lang-option" data-lang="en">English</div>
