@@ -229,6 +229,47 @@ main>img{
     top: 3vh;
     left: 68%;
     width: 25%;
-    filter: blur(1px);
+    filter: blur(2px);
     transform: rotate(15deg);
+}
+
+/**********************/
+/*******Page 2 & Scroll*******/
+/**********************/
+
+.page-2 {
+    background: #fff;
+    color: #000;
+    height: 100vh;
+}
+
+.page-2>h2 {
+    font-size: 2.5rem;
+    margin-right: 5vw;
+    text-align: end;
+}
+
+.page-2>h3 {
+    font-weight: 400;
+    margin-left: 5vw;
+}
+
+.page2-content {
+    position: relative;
+    transform: rotate(90deg)!important;
+}
+
+.rond-p21 {
+    position: absolute;
+    width: 50%;
+    top: -25vh;
+    right: -15vw;
+    
+}
+
+.fleur-p2 {
+    position: absolute;
+    width: 40%;
+    top: -18vh;
+    right: -18vw;
 }
