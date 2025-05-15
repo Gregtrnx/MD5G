@@ -288,7 +288,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         ease: 'sine.inOut'
     });
 
-    gsap.to('.info:nth-child(2)', {
+    gsap.to('.nom', {
         y: 15,
         duration: 3,
         repeat: -1,
