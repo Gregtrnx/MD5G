@@ -5,6 +5,11 @@ body {
     margin: 0;
 }
 
+html, body {
+    overflow-x: hidden !important;
+    width: 100vw;
+}
+
 /**********************/
 /*******Header*******/
 /**********************/
@@ -153,4 +158,77 @@ main>img{
     left: -5vw;
     width: 130%;
     z-index: 2;
+}
+
+/**********************/
+/*******Page 1*******/
+/**********************/
+.page-1 {
+    background-color: #fff;
+    margin-top: 50vh;
+    height: 100vh;
+}
+
+.page-1>h2 {
+    font-size: 3.5rem;
+    color: #000;
+    padding-top: 10vh;
+    margin-left: 5vw;
+}
+
+.page-1>h3 {
+    color: #000;
+    text-align: end;
+    margin-right: 5vw;
+}
+
+.page1-content {
+    position: relative;
+}
+
+.rond {
+    position: absolute;
+    top: 10vh;
+    left: -30vw;
+    width: 70%;
+    transform: rotate(90deg)!important;
+}
+
+.fleur {
+    position: absolute;
+    top: -1vh;
+    left: -5%;
+    width: 50%;
+    transform: rotate(80deg)!important;
+}
+
+.rectangle {
+    position: absolute;
+    top: 28vh;
+    left: 30%;
+    width: 9%;
+}
+
+.sablier {
+    position: absolute;
+    top: 20vh;
+    left: 35%;
+    width: 7%;
+}
+
+.ordi {
+    position: absolute;
+    width: 30%;
+    top: 30vh;
+    left: 0;
+    transform: rotate(20deg);
+}
+
+.mobile {
+    position: absolute;
+    top: 3vh;
+    left: 68%;
+    width: 25%;
+    filter: blur(1px);
+    transform: rotate(15deg)!important;
 }
