@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             onComplete: startFloatAnimationsPage1
         });
 
-        gsap.set('.page-1 .rond', { rotation: 0 });
+        gsap.set('.page-1 .rond', { rotation: 90 });
         tl.from('.page-1 .rond', {
             y: -200,
             opacity: 0,
@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             yoyo: true,
             ease: 'sine.inOut'
         });
-        gsap.set('.page-1 .fleur', { rotation: 0 });
+        gsap.set('.page-1 .fleur', { rotation: 80 });
         gsap.to('.page-1 .fleur', {
             y: "-=20",
             x: "+=10",
@@ -569,7 +569,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
 
     // Flottaison page 5 : appliquer la rotation de base AVANT l'animation
-    gsap.set('.page5-content .rond-p2', { rotation: 0 });
+    gsap.set('.page5-content .rond-p2', { rotation: -90 });
     gsap.to('.page5-content .rond-p2', {
         y: 15,
         duration: 3,
@@ -577,7 +577,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         yoyo: true,
         ease: 'sine.inOut'
     });
-    gsap.set('.page5-content .fleur-p2', { rotation: 0 });
+    gsap.set('.page5-content .fleur-p2', { rotation: -80 });
     gsap.to('.page5-content .fleur-p2', {
         y: -20,
         x: 10,
