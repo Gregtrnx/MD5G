@@ -139,7 +139,7 @@ main>img{
 
 .bg-cloud {
     position: absolute;
-    bottom: -30vh;
+    bottom: -50vh;
     left: -5vw;
     width: 130%;
     z-index: 2;
@@ -149,7 +149,7 @@ main>img{
 
 .bg-cloud-1 {
     position: absolute;
-    bottom: -25vh;
+    bottom: -35vh;
     left: -5vw;
     width: 130%;
     z-index: 2;
