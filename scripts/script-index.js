@@ -44,7 +44,29 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
     }
 
-
+    // Animation GSAP pour .logo-wp sur la page 3 (mobile)
+    const logoWP = document.querySelector('.page-3 .logo-wp');
+    const page3 = document.querySelector('.page-3');
+    if (logoWP && page3) {
+        function getMaxX() {
+            const sectionWidth = page3.offsetWidth;
+            const logoWidth = logoWP.offsetWidth;
+            return sectionWidth - logoWidth - 16;
+        }
+        gsap.to(logoWP, {
+            x: () => getMaxX(),
+            rotation: 720,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: page3,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: 1,
+                invalidateOnRefresh: true,
+                // markers: true
+            }
+        });
+    }
 
     // Animation GSAP sur tous les éléments de la section .Home
     gsap.from('header>*', {
@@ -103,6 +125,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             onComplete: startFloatAnimationsPage1
         });
 
+        gsap.set('.page-1 .rond', { rotation: 90 });
         tl.from('.page-1 .rond', {
             y: -200,
             opacity: 0,
@@ -151,6 +174,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             yoyo: true,
             ease: 'sine.inOut'
         });
+        gsap.set('.page-1 .fleur', { rotation: 80 });
         gsap.to('.page-1 .fleur', {
             y: "-=20",
             x: "+=10",
@@ -543,5 +567,25 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
         localStorage.removeItem('scrollToTarget');
     }
+
+    // Flottaison page 5 : appliquer la rotation de base AVANT l'animation
+    gsap.set('.page5-content .rond-p2', { rotation: -90 });
+    gsap.to('.page5-content .rond-p2', {
+        y: 15,
+        duration: 3,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut'
+    });
+    gsap.set('.page5-content .fleur-p2', { rotation: -80 });
+    gsap.to('.page5-content .fleur-p2', {
+        y: -20,
+        x: 10,
+        rotation: 2,
+        duration: 10,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut'
+    });
 });
 

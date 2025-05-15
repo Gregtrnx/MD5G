@@ -191,7 +191,7 @@ main>img{
     top: 10vh;
     left: -30vw;
     width: 70%;
-    transform: rotate(90deg)!important;
+    
 }
 
 .fleur {
@@ -199,7 +199,6 @@ main>img{
     top: -1vh;
     left: -5%;
     width: 50%;
-    transform: rotate(80deg)!important;
 }
 
 .rectangle {
@@ -234,13 +233,13 @@ main>img{
 }
 
 /**********************/
-/*******Page 2 & Scroll*******/
+/*******Page 2*******/
 /**********************/
 
 .page-2 {
     background: #fff;
     color: #000;
-    height: 100vh;
+    height: 70vh;
 }
 
 .page-2>h2 {
@@ -272,4 +271,116 @@ main>img{
     width: 40%;
     top: -18vh;
     right: -18vw;
+}
+
+/**********************/
+/*******Page 3*******/
+/**********************/
+
+.page-3 {
+    background: #fff;
+    color: #000;
+    height: 50vh;
+    position: relative;
+}
+
+.page-3>h2 {
+    font-size: 2.5rem;
+    margin-right: 5vw;
+    text-align: start;
+}
+
+.page-3>h3 {
+    font-weight: 400;
+    margin-top: 8vh;
+    margin-right: 5vw;
+    text-align: end;
+}
+
+.page-3>img {
+    position: absolute;
+    top: 12vh;
+    left: -8vw;
+    max-width: 20%;
+}
+
+/**********************/
+/*******Page 4*******/
+/**********************/
+
+.page-4 {
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    height: 50vh;
+}
+
+.page-4 .circuit-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    background: #ffffff;
+}
+
+.page-4 .circuit-bg canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.page-4>h2 {
+    left: 0;
+    color: #000;
+    font-size: 2.5rem;
+    margin-right: 5vw;
+    text-align: end;
+}
+
+.page-4>h3 {
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-left: 5vw;
+}
+
+/**********************/
+/*******Page 5*******/
+/**********************/
+
+.page-5 {
+    background: #fff;
+    color: #000;
+    height: 70vh;
+}
+
+.page-5>h2 {
+    font-size: 2.5rem;
+    margin-left: 5vw;
+}
+
+.page-5>h3 {
+    font-weight: 400;
+    margin-right: 5vw;
+    text-align: end;
+}
+
+.page5-content {
+    position: relative;
+}
+
+.page5-content>.rond-p2 {
+    position: absolute;
+    top: 10vh;
+    left: -30vw;
+    width: 70%;
+}
+
+.page5-content>.fleur-p2 {
+    position: absolute;
+    top: 3vh;
+    left: -5vw;
 }
