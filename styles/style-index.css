@@ -294,6 +294,31 @@ main {
     filter: blur(2px);
 }
 
+@media screen and (max-width: 1600px) {
+    .mobile {
+        position: absolute;
+        top: -20vh;
+        left: 75%;
+        width: 18%;
+        filter: blur(2px);
+    }
+
+    .ordi {
+        position: absolute;
+        top: 30vh;
+        left: 40%;
+        width: 15%;
+        transform: rotate(20deg);
+    }
+
+    .rond-p21 {
+        position: absolute;
+        top: -65vh;
+        right: 20vw;
+        width: 35%;
+    }
+}
+
 /**********************/
 /*******Page 2 & Scroll*******/
 /**********************/

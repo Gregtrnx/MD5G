@@ -20,7 +20,7 @@ header {
     top: 0;
     background: #ffffff;
     color: #000;
-    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.08);
+    box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.08);
     transition: background 0.3s, box-shadow 0.3s, color 0.3s;
     z-index: 100;
 }
@@ -71,13 +71,26 @@ h1 {
 /*** Formulaire Contact ***/
 /**********************/
 
-main{
+main {
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin-bottom: 10vh;
     position: relative;
     height: 73%;
+}
+
+@media screen and (max-width: 1600px) {
+    main {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 10vh;
+        padding-bottom: 10vh;
+        margin-top : 10vh;
+        position: relative;
+        height: 73%;
+    }
 }
 
 .form-contact {
@@ -125,7 +138,7 @@ main{
     margin-top: 16px;
     cursor: pointer;
     transition: background 0.2s, color 0.2s, border 0.2s;
-    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.08);
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.08);
 }
 
 .form-contact button:hover {
@@ -134,7 +147,7 @@ main{
     border: 2px solid #222;
 }
 
-.info-container{
+.info-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -142,7 +155,7 @@ main{
     position: relative;
 }
 
-.info-container h2{
+.info-container h2 {
     font-size: 6rem;
     font-weight: 600;
     width: min-content;
@@ -152,8 +165,8 @@ main{
     transform: translateX(-70%) translateY(25%);*/
 }
 
-.info-container p{
-   /* position: absolute;
+.info-container p {
+    /* position: absolute;
     bottom: 0;
     right: 0;
     transform: translateY(0%) translateX(10%);
@@ -170,7 +183,8 @@ main img {
     transform: none;
 }
 
-.contact-container, .info-container {
+.contact-container,
+.info-container {
     position: relative;
     z-index: 1;
 }
@@ -179,18 +193,15 @@ main img {
 /*** Footer ***/
 /**********************/
 
-.footer-container{
+.footer-container {
     display: flex;
     align-items: center;
-    color : #000;
-    box-shadow: inset 0 4px 4px 0 rgba(0,0,0,0.25);
+    color: #000;
+    box-shadow: inset 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     margin-top: auto;
     height: fit-content;
-    padding :32px;
+    padding: 32px;
     width: 100%;
     gap: 5vw;
     padding-left: 5vw;
 }
-
-
-
