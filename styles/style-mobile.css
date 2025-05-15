@@ -230,5 +230,5 @@ main>img{
     left: 68%;
     width: 25%;
     filter: blur(1px);
-    transform: rotate(15deg)!important;
+    transform: rotate(15deg);
 }
