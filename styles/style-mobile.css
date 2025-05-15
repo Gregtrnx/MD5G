@@ -52,7 +52,7 @@ header>img{
 .lang-menu {
     position: absolute;
     top: 50px;
-    left: 0;
+    right: 0;
     background: #ffffff;
     color: #000;
     border-radius: 8px;
