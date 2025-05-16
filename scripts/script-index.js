@@ -288,14 +288,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         ease: 'sine.inOut'
     });
 
-    gsap.to('.nom', {
-        y: 15,
-        duration: 3,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut'
-    });
-
     // Animation GSAP TextPlugin sur le titre .Me > h2 au scroll
     const meH2 = document.querySelector('.Me > h2');
     if (meH2) {
