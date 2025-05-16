@@ -681,6 +681,21 @@ document.addEventListener("DOMContentLoaded", (event) => {
             });
         });
     }
+
+    // --- Scroll To Top Button ---
+    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+    if (scrollToTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > window.innerHeight * 0.5) {
+                scrollToTopBtn.style.display = 'block';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+        scrollToTopBtn.addEventListener('click', () => {
+            gsap.to(window, { duration: 1, scrollTo: 0, ease: 'power2.inOut' });
+        });
+    }
 });
 
 

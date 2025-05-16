@@ -629,3 +629,34 @@ main>img{
     padding-bottom: 32px;
     margin-top: 0;
 }
+
+#scrollToTopBtn {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 48px;
+    height: 48px;
+    background: none;
+    border: none;
+    outline: none;
+    z-index: 30000;
+    cursor: pointer;
+    padding: 0;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    transition: transform 0.18s, box-shadow 0.18s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#scrollToTopBtn svg {
+    display: block;
+    width: 48px; /* Ajuste la taille si nécessaire */
+    height: 36px; /* Ajuste la taille si nécessaire */
+}
+
+#scrollToTopBtn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.28);
+}
