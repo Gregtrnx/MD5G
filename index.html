@@ -14,7 +14,7 @@
         }
         // Redirection dynamique au redimensionnement
         window.addEventListener('resize', function () {
-            if (goMobile() && !window.location.pathname.includes('index-mobile.html')) {
+            if (goMobile() && !window.location.pathname.includes('index.html')) {
                 window.location.href = "pages/index-mobile.html";
                 Location.reload();
             }
