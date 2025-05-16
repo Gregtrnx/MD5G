@@ -299,7 +299,7 @@ main>img{
 
 .page-3>img {
     position: absolute;
-    top: 12vh;
+    top: 14vh;
     left: -8vw;
     max-width: 20%;
 }
@@ -395,7 +395,7 @@ main>img{
 }
 
 .Me>h2 {
-    font-size: 3.3rem;
+    font-size: 3rem;
     color: #000;
     padding-top: 10vh;
     margin-left: 5vw;
