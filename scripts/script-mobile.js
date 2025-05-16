@@ -587,5 +587,101 @@ document.addEventListener("DOMContentLoaded", (event) => {
         yoyo: true,
         ease: 'sine.inOut'
     });
+    // Animations GSAP personnalisées pour les pages 2 à 5
+        // PAGE 2
+        gsap.from('.page-2 > h2', {
+            scrollTrigger: {
+                trigger: '.page-2',
+                start: "top 80%",
+            },
+            y: -80,
+            opacity: 0,
+            ease: "bounce.out",
+            duration: 1
+        });
+        gsap.from('.page-2 > h3', {
+            scrollTrigger: {
+                trigger: '.page-2',
+                start: "top 80%",
+            },
+            x: -100,
+            opacity: 0,
+            ease: "back.out(1.7)",
+            duration: 1,
+            delay: 0.2
+        });
+
+        // PAGE 3
+        gsap.from('.page-3 > h2', {
+            scrollTrigger: {
+                trigger: '.page-3',
+                start: "top 80%",
+            },
+            scrambleText: {
+                text: document.querySelector('.page-3 > h2')?.textContent || '',
+                chars: "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                revealDelay: 0.2
+            },
+            duration: 1.2,
+            ease: "power1.inOut"
+        });
+        gsap.from('.page-3 > h3', {
+            scrollTrigger: {
+                trigger: '.page-3',
+                start: "top 80%",
+            },
+            opacity: 0,
+            scale: 0.7,
+            duration: 1,
+            delay: 0.2,
+            ease: "power2.out"
+        });
+
+        // PAGE 4 
+        gsap.from('.page-4 > h2', {
+            scrollTrigger: {
+                trigger: section,
+                start: "top 80%", // quand le haut de la section atteint 80% de la hauteur du viewport
+            },
+            y: 50,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power2.out"
+        });
+        gsap.from('.page-4 > h3', {
+            scrollTrigger: {
+                trigger: section,
+                start: "top 80%",
+            },
+            y: 50,
+            opacity: 0,
+            duration: 0.8,
+            delay: 0.2,
+            ease: "power2.out"
+        });
+
+        // PAGE 5
+        gsap.from('.page-5 > h2', {
+            scrollTrigger: {
+                trigger: '.page-5',
+                start: "top 80%",
+            },
+            rotationX: 90,
+            opacity: 0,
+            transformOrigin: "top center",
+            duration: 1,
+            ease: "back.out(1.7)"
+        });
+        gsap.from('.page-5 > h3', {
+            scrollTrigger: {
+                trigger: '.page-5',
+                start: "top 80%",
+            },
+            y: 80,
+            opacity: 0,
+            duration: 1,
+            delay: 0.2,
+            ease: "bounce.out"
+        });
 });
 
