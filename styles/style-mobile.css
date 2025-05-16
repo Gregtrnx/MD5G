@@ -134,7 +134,7 @@ h1 {
 .menu-btn-press {
     transform: scale(0.93) translateX(8px);
     background: #ffffff;
-    border-radius: 5px;
+    border-radius: 3px;
     padding: 5px;
     color: #000 !important;
     transition: transform 0.15s, background 0.15s, color 0.15s;
