@@ -5,9 +5,12 @@ body {
     margin: 0;
 }
 
-html, body {
-    overflow-x: hidden !important;
-    width: 100vw;
+
+html {
+    overflow-x: hidden;
+}
+body {
+    overflow-x: clip;
 }
 
 /**********************/
@@ -22,7 +25,7 @@ header {
     top: 0;
     background: #000000;
     transition: background 0.3s, box-shadow 0.3s, color 0.3s;
-    z-index: 100;
+    z-index: 1000;
     padding : 12px;
 }
 
@@ -37,7 +40,11 @@ header.header-sticky .translate {
     filter: invert(1);
 }
 
-header>img{
+header.header-sticky .burger {
+    filter: invert(0);
+}
+
+.burger{
     max-width: 40px;
     max-height: 40px;
     filter: invert(1);

@@ -1,48 +1,5 @@
 document.addEventListener("DOMContentLoaded", (event) => {
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, TextPlugin, CustomEase, Physics2DPlugin, Flip, ScrambleTextPlugin);
-    // gsap code here!
-
-    const sections = document.querySelectorAll('.horizontal-sections section');
-    const container = document.querySelector('.horizontal-sections');
-
-    const scrollWrapper = document.querySelector('.horizontal-scroll-wrapper');
-
-    if (scrollWrapper && container && sections.length > 0) {
-        let totalScroll = container.scrollWidth - window.innerWidth;
-
-        gsap.to(container, {
-            x: () => `-${totalScroll}px`,
-            ease: 'none',
-            scrollTrigger: {
-                id: 'horizontalScroll',
-                trigger: scrollWrapper,
-                start: 'top top',
-                end: () => `+=${totalScroll}`,
-                pin: true,
-                scrub: 1,
-                anticipatePin: 1,
-                invalidateOnRefresh: true,
-            }
-        });
-
-        const page3Img = document.querySelector('.page-3 > img');
-        if (page3Img && scrollWrapper && container && sections.length > 0) {
-            let totalScroll = container.scrollWidth - window.innerWidth;
-            gsap.to(page3Img, {
-                rotation: 720,
-                x: 2500,
-                ease: 'none',
-                scrollTrigger: {
-                    trigger: scrollWrapper,
-                    start: 'top top',
-                    end: () => `+=${totalScroll}`,
-                    scrub: 1,
-                    anticipatePin: 1,
-                    invalidateOnRefresh: true,
-                }
-            });
-        }
-    }
 
     // Animation GSAP pour .logo-wp sur la page 3 (mobile)
     const logoWP = document.querySelector('.page-3 .logo-wp');
@@ -82,13 +39,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         duration: 1.2,
         ease: 'power2.out',
         delay: 0.3
-    });
-    gsap.from('.adjectives-main', {
-        opacity: 0,
-        y: 40,
-        duration: 1.2,
-        ease: 'power2.out',
-        delay: 0.7
     });
 
     // Apparition spectaculaire des éléments de la page 1
@@ -346,7 +296,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     // Gestion sticky + couleur du header selon la section scrollée
     const header = document.querySelector('header');
-    const homeSection = document.querySelector('.Home');
+    const homeSection = document.querySelector('main');
     if (header && homeSection) {
         ScrollTrigger.create({
             trigger: homeSection,
