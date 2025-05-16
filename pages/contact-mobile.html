@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MD5G - Concepteur de Site Web</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style-contact-mobile.css">
+</head>
+
+<body>
+    <header>
+        <img class="burger" src="../images/burger-bar.png" alt="burger">
+        <div class="Title">
+            <h1>MD5G</h1>
+        </div>
+        <div class="translate">
+            <img src="../images/translate.png" alt="Logo Translate">
+            <div class="lang-menu" style="display:none;">
+                <div class="lang-option" data-lang="fr">Français</div>
+                <div class="lang-option" data-lang="en">English</div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="info-container">
+            <h2>Me contacter</h2>
+
+            <p>Il est très important pour moi de rester en contact avec vous, je suis donc toujours prêts à répondre à
+                vos questions !</p>
+        </div>
+        <div class="contact-container">
+            <form class="form-contact" action="/pages/send_email.php" method="POST">
+                <label for="nom">Votre nom</label>
+                <input type="text" id="nom" name="nom" required>
+                <label for="email">Votre email</label>
+                <input type="email" id="email" name="email" required pattern="^[^@\s]+@[^@\s]+\.[^@\s]+$"
+                    title="Veuillez entrer une adresse email valide">
+                <label for="message">Votre message</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <div class="g-recaptcha" data-sitekey="6LexhjMrAAAAAJkmWu7yM-sbb3Ql4PoXfmkDFJob"></div>
+                <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                <button type="submit">ENVOYER</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div>Numéro de téléphone :<b> 07.78.03.04.25</b></div>
+            <div>E-mail :<b> md5g@gmail.com</b></div>
+        </div>
+    </footer>
+
+
+    <!-- GSAP -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/TextPlugin.min.js"></script>
+
+    <!-- Script customGSAP -->
+    <script src="/scripts/script-contact.js"></script>
+
+
+</body>
+
+</html>
