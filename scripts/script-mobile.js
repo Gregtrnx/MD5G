@@ -567,13 +567,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 trigger: '.page-3',
                 start: "top 80%",
             },
-            scrambleText: {
-                text: document.querySelector('.page-3 > h2')?.textContent || '',
-                chars: "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
-                revealDelay: 0.2
-            },
+            x: -120,
+            rotation: -20,
+            opacity: 0,
             duration: 1.2,
-            ease: "power1.inOut"
+            ease: "back.out(1.7)"
         });
         gsap.from('.page-3 > h3', {
             scrollTrigger: {
@@ -581,8 +579,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 start: "top 80%",
             },
             opacity: 0,
-            scale: 0.7,
-            duration: 1,
+            scale: 1.3,
+            duration: 1.1,
             delay: 0.2,
             ease: "power2.out"
         });
