@@ -640,7 +640,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         // PAGE 4 
         gsap.from('.page-4 > h2', {
             scrollTrigger: {
-                trigger: section,
+                trigger: '.page-4',
                 start: "top 80%", // quand le haut de la section atteint 80% de la hauteur du viewport
             },
             y: 50,
@@ -650,7 +650,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         });
         gsap.from('.page-4 > h3', {
             scrollTrigger: {
-                trigger: section,
+                trigger: '.page-4',
                 start: "top 80%",
             },
             y: 50,
