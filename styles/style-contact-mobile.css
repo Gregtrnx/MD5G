@@ -90,7 +90,7 @@ main {
     flex-direction: column;
     gap: 24px;
     width: 90vw;
-    margin: 6vh auto 0 auto;
+    margin: 6vh auto 6vh auto;
     background: transparent;
 }
 
