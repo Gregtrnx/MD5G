@@ -3,23 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <script>
-        function goMobile() {
-            return window.innerWidth <= 900;
-        }
-        // Redirection au chargement
-        if (goMobile()) {
-            window.location.href = "pages/index-mobile.html";
-            Location.reload();
-        }
-        // Redirection dynamique au redimensionnement
-        window.addEventListener('resize', function () {
-            if (goMobile() && !window.location.pathname.includes('index-mobile.html')) {
-                window.location.href = "pages/index-mobile.html";
-                Location.reload();
-            }
-        });
-    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MD5G - Concepteur de Site Web</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,10 +25,12 @@
             font-size: 2rem;
             transition: opacity 0.5s ease;
         }
+
         #loader.hidden {
             opacity: 0;
             pointer-events: none;
         }
+
         .letter {
             opacity: 0;
             display: inline-block;
@@ -56,7 +41,8 @@
 
 <body>
     <div id="loader">
-        <span class="letter">M</span><span class="letter">D</span><span class="letter">5</span><span class="letter">G</span>
+        <span class="letter">M</span><span class="letter">D</span><span class="letter">5</span><span
+            class="letter">G</span>
     </div>
     <header>
         <div class="translate">
@@ -387,8 +373,19 @@
             setTimeout(() => {
                 const loader = document.getElementById('loader');
                 loader.classList.add('hidden');
-                setTimeout(() => loader.style.display = 'none', 500);
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                    // Redirection mobile automatique après le loader
+                    if (window.innerWidth <= 900 && !window.location.pathname.includes('index-mobile.html')) {
+                        window.location.href = "pages/index-mobile.html";
+                    }
+                }, 500);
             }, 3000);
+        });
+        window.addEventListener('resize', function () {
+            if (window.innerWidth <= 900 && !window.location.pathname.includes('index-mobile.html')) {
+                window.location.href = "pages/index-mobile.html";
+            }
         });
     </script>
 </body>
