@@ -54,7 +54,7 @@
             </form>
         </div>
     </main>
-    
+
 
 
     <!-- GSAP -->
@@ -66,7 +66,61 @@
     <!-- Script customGSAP -->
     <script src="../scripts/script-contact-mobile.js"></script>
 
+    <script>
+        // Dictionnaire de traduction
+        const translations = {
+            en: {
+                "Votre nom": "Your name",
+                "Votre email": "Your email",
+                "Votre message": "Your message",
+                "ENVOYER": "SEND",
+                "Me contacter": "Contact me",
+                "Il est très important pour moi de rester en contact avec vous, je suis donc toujours prêts à répondre à vos questions !": "It is very important for me to stay in touch with you, so I am always ready to answer your questions!",
+                "Numéro de téléphone :": "Phone number:",
+                "E-mail :": "E-mail:",
+                "Qui suis-je ?": "Who am I?",
+                "Contact": "Contact",
+                "Tarifs": "Prices"
+            },
+            fr: {}
+        };
 
+        let currentLang = 'fr';
+
+        // Affichage du menu langue
+        const translateBtn = document.querySelector('.translate img');
+        const langMenu = document.querySelector('.lang-menu');
+        translateBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langMenu.style.display = langMenu.style.display === 'block' ? 'none' : 'block';
+        });
+        document.addEventListener('click', () => {
+            langMenu.style.display = 'none';
+        });
+
+        // Fonction de traduction
+        function translatePage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('h1, h2, h3, h4, p, a, label, button, .lang-option, .footer-container div').forEach(el => {
+                const original = el.getAttribute('data-original') || el.textContent.trim();
+                if (!el.getAttribute('data-original')) el.setAttribute('data-original', original);
+                if (translations[lang][original]) {
+                    el.textContent = translations[lang][original];
+                } else if (lang === 'fr') {
+                    el.textContent = el.getAttribute('data-original');
+                }
+            });
+        }
+
+        // Gestion du clic sur une langue
+        document.querySelectorAll('.lang-option').forEach(option => {
+            option.addEventListener('click', (e) => {
+                const lang = e.target.getAttribute('data-lang');
+                translatePage(lang);
+                langMenu.style.display = 'none';
+            });
+        });
+    </script>
 </body>
 
 </html>

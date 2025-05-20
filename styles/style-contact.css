@@ -67,6 +67,34 @@ h1 {
     padding: 7px 10rem 7px 10rem;
 }
 
+.lang-menu {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background: #fff;
+    color: #000;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    min-width: 100px;
+    font-size: 1rem;
+    padding: 8px 0;
+}
+
+.lang-option {
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.lang-option:hover {
+    background: #f0f0f0;
+}
+
+.translate {
+    position: relative;
+}
+
 /**********************/
 /*** Formulaire Contact ***/
 /**********************/
